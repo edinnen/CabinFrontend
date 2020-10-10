@@ -1,7 +1,9 @@
 export interface AuthUser {
-  uid: string;
-  displayName?: string;
+  uid?: string;
+  name?: string;
   email?: string;
   photoURL?: string;
   token?: string;
+  type?: string;
+  password?: string;
 }

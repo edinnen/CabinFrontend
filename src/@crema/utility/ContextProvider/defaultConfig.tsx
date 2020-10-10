@@ -17,11 +17,7 @@ const defaultConfig: any = {
     spacing: 4,
     direction: 'ltr', //ltr, rtl
     palette: {
-      type: ThemeMode.LIGHT,
-      background: {
-        paper: '#FFFFFF',
-        default: '#F4F7FE',
-      },
+      type: ThemeMode.DARK,
       primary: {
         main: '#0A8FDC',
         contrastText: '#fff',
@@ -36,12 +32,6 @@ const defaultConfig: any = {
       common: {
         white: '#fff',
         black: '#fff',
-      },
-      text: {
-        primary: 'rgba(0, 0, 0, 0.87)',
-        secondary: 'rgba(0, 0, 0, 0.54)',
-        disabled: 'rgba(0, 0, 0, 0.38)',
-        hint: 'rgba(0, 0, 0, 0.38)',
       },
     },
     status: {

@@ -8,7 +8,6 @@ import Hidden from '@material-ui/core/Hidden';
 import Box from '@material-ui/core/Box';
 import SearchBar from '../../SearchBar';
 import useStyles from './AppHeader.style';
-import AppLogo from '../../../../shared/components/AppLogo';
 
 interface AppHeaderProps {}
 
@@ -31,7 +30,6 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
           onClick={() => dispatch(toggleNavCollapsed())}>
           <MenuIcon className={classes.menuIcon} />
         </IconButton>
-        <AppLogo />
         <SearchBar borderLight placeholder='Search…' align='left' />
       </Box>
     </Hidden>

@@ -51,11 +51,7 @@ const Signup: React.FC<SignupProps> = (props) => {
   return (
     <Box flex={1} display='flex' flexDirection='column' justifyContent='center'>
       <Box mb={{xs: 6, md: 8, xl: 18}} textAlign='center'>
-        <img
-          className={classes.imgRoot}
-          src={require('assets/images/logo-white-with-name.png')}
-          alt='crema-logo'
-        />
+        <Box component="h1">Thanksgiving Cabin</Box>
       </Box>
 
       <Box

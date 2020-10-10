@@ -19,7 +19,6 @@ import HeaderMessages from '../../HeaderMessages';
 import Notifications from '../../Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import UserInfo from '../UserInfo';
-import AppLogo from '../../../../shared/components/AppLogo';
 
 interface AppHeaderProps {}
 
@@ -77,7 +76,6 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
                 </IconButton>
               </Hidden>
 
-              <AppLogo />
               <Box className={classes.grow} />
               <SearchBar />
               <Box className={clsx(classes.sectionDesktop)}>

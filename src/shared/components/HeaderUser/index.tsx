@@ -33,8 +33,8 @@ const HeaderUser = (props: any) => {
   };
 
   const getUserAvatar = () => {
-    if (user && user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
+    if (user && user.name) {
+      return user.name.charAt(0).toUpperCase();
     }
     if (user && user.email) {
       return user.email.charAt(0).toUpperCase();
@@ -115,7 +115,7 @@ const HeaderUser = (props: any) => {
             justifyContent='space-between'>
             <Hidden mdDown>
               <Box mb={1} className={clsx(classes.userName)}>
-                {user && (user.displayName ? user.displayName : user.email)}
+                {user && (user.name ? user.name : user.email)}
                 <Box fontSize={14} color='text.secondary'>
                   Admin
                 </Box>

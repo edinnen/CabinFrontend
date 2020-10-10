@@ -33,8 +33,8 @@ const UserInfo: React.FC<UserInfoProps> = (props) => {
   };
 
   const getUserAvatar = () => {
-    if (user && user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
+    if (user && user.name) {
+      return user.name.charAt(0).toUpperCase();
     }
     if (user && user.email) {
       return user.email.charAt(0).toUpperCase();

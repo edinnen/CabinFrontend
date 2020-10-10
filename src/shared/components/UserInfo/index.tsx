@@ -32,8 +32,8 @@ const UserInfo = (props: any) => {
   };
 
   const getUserAvatar = () => {
-    if (user && user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
+    if (user && user.name) {
+      return user.name.charAt(0).toUpperCase();
     }
     if (user && user.email) {
       return user.email.charAt(0).toUpperCase();
@@ -99,6 +99,11 @@ const UserInfo = (props: any) => {
 
   const classes = useStyles(props);
 
+  const userTypes: { [key: string]: string } = {
+    admin: "System Manager",
+    guest: "Troglodyte"
+  };
+
   return (
     <Box
       px={{xs: 4, xl: 7}}
@@ -115,7 +120,7 @@ const UserInfo = (props: any) => {
             alignItems='center'
             justifyContent='space-between'>
             <Box mb={0} className={clsx(classes.userName)}>
-              {user && (user.displayName ? user.displayName : 'Admin User')}
+              {user && (user.name ? user.name : 'Admin User')}
             </Box>
             <Box
               ml={3}
@@ -143,7 +148,7 @@ const UserInfo = (props: any) => {
             </Box>
           </Box>
           <Box color={grey.A200} className={classes.designation}>
-            System Manager
+            {user && user.type === 'admin' ? userTypes.admin : userTypes.guest}
           </Box>
         </Box>
       </Box>

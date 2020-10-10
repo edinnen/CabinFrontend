@@ -1,29 +1,19 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
 import Button from '@material-ui/core/Button';
-import {Checkbox} from '@material-ui/core';
 import {Form, Formik, useField} from 'formik';
 import * as yup from 'yup';
-import IconButton from '@material-ui/core/IconButton';
 import {useDispatch} from 'react-redux';
 import InfoView from '../../../@crema/core/InfoView';
 import {
-  onSignInFirebaseUser,
-  signInUserWithFacebook,
-  signInUserWithGithub,
-  signInUserWithGoogle,
-  signInUserWithTwitter,
+  onSignInFirebaseUser
 } from '../../../redux/actions';
 import Box from '@material-ui/core/Box';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import {useIntl} from 'react-intl';
 import {makeStyles} from '@material-ui/core/styles';
 import clsx from 'clsx';
-import {Link, useHistory} from 'react-router-dom';
-import grey from '@material-ui/core/colors/grey';
+import {Link} from 'react-router-dom';
 import {CremaTheme} from '../../../types/AppContextPropsType';
 import {Fonts} from 'shared/constants/AppEnums';
 
@@ -49,11 +39,6 @@ interface UserSigninProps {}
 
 const UserSignin: React.FC<UserSigninProps> = (props) => {
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const onGoToForgetPassword = () => {
-    history.push('/forget-password');
-  };
 
   const {messages} = useIntl();
 
@@ -136,8 +121,8 @@ const UserSignin: React.FC<UserSigninProps> = (props) => {
         <Formik
           validateOnChange={true}
           initialValues={{
-            email: 'crema.demo@gmail.com',
-            password: 'Pass@1!@all',
+            email: 'ethanjdinnen@gmail.com',
+            password: 'chigau',
           }}
           validationSchema={validationSchema}
           onSubmit={(data, {setSubmitting}) => {
@@ -166,29 +151,6 @@ const UserSignin: React.FC<UserSigninProps> = (props) => {
                   variant='outlined'
                   className={classes.myTextFieldRoot}
                 />
-              </Box>
-
-              <Box
-                mb={{xs: 4, xl: 6}}
-                display='flex'
-                flexDirection={{xs: 'column', sm: 'row'}}
-                alignItems={{sm: 'center'}}
-                justifyContent={{sm: 'space-between'}}
-                fontSize={18}>
-                <Box display='flex' alignItems='center'>
-                  <Checkbox className={classes.checkboxRoot} />
-                  <Box className={classes.textGrey} component='span'>
-                    <IntlMessages id='common.rememberMe' />
-                  </Box>
-                </Box>
-                <Box
-                  color='primary.main'
-                  component='span'
-                  ml={{sm: 4}}
-                  className={classes.pointer}
-                  onClick={onGoToForgetPassword}>
-                  <IntlMessages id='common.forgetPassword' />
-                </Box>
               </Box>
 
               <Box
@@ -230,46 +192,6 @@ const UserSignin: React.FC<UserSigninProps> = (props) => {
           )}
         </Formik>
       </Box>
-
-      <Box
-        bgcolor={grey[100]}
-        px={{xs: 6, sm: 10, xl: 15}}
-        py={{xs: 2, xl: 4}}
-        display='flex'
-        flexDirection={{xs: 'column', sm: 'row'}}
-        justifyContent='center'
-        alignItems='center'>
-        <Box
-          component='span'
-          className={classes.textGrey}
-          mr={{sm: 4}}
-          fontSize={18}>
-          <IntlMessages id='common.orLoginWith' />
-        </Box>
-        <Box display='flex' alignItems='center'>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithGoogle())}>
-            <i className='zmdi zmdi-google' />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithFacebook())}>
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithGithub())}>
-            <GitHubIcon />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithTwitter())}>
-            <TwitterIcon />
-          </IconButton>
-        </Box>
-      </Box>
-
       <InfoView />
     </Box>
   );

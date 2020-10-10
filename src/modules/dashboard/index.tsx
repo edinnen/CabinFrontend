@@ -5,6 +5,15 @@ export const dashBoardConfigs = [
     auth: ['user'],
     routes: [
       {
+        path: '/dashboards/live',
+        component: React.lazy(() => import('./Live')),
+      },
+    ],
+  },
+  {
+    auth: ['user'],
+    routes: [
+      {
         path: '/dashboards/crm',
         component: React.lazy(() => import('./CRM')),
       },
@@ -32,8 +41,8 @@ export const dashBoardConfigs = [
     auth: ['user'],
     routes: [
       {
-        path: '/dashboards/metrics',
-        component: React.lazy(() => import('./Metrics')),
+        path: '/dashboards/metrics2',
+        component: React.lazy(() => import('./MetricsOld')),
       },
     ],
   },

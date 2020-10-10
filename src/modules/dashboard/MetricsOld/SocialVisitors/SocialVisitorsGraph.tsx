@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import {makeStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/core/styles';
 import {Fonts} from '../../../../shared/constants/AppEnums';
 import {useBreakPointDown} from '../../../../@crema/utility/Utils';
 import {SocialVisitorsData} from '../../../../types/models/Metrics';

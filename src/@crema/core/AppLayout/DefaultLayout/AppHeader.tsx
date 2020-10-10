@@ -15,7 +15,6 @@ import HeaderMessages from '../../HeaderMessages';
 import Notifications from '../../Notifications';
 import SearchBar from '../../SearchBar';
 import useStyles from './AppHeader.style';
-import AppLogo from '../../../../shared/components/AppLogo';
 
 interface AppHeaderProps {}
 
@@ -72,7 +71,6 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
             </IconButton>
           </Hidden>
 
-          <AppLogo />
           <Box className={classes.grow} />
           <SearchBar borderLight placeholder='Search…' />
           <Box className={classes.sectionDesktop}>

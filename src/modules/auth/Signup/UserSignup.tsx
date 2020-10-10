@@ -1,22 +1,13 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
 import Button from '@material-ui/core/Button';
-import {Checkbox} from '@material-ui/core';
 import {Form, Formik, useField} from 'formik';
 import * as yup from 'yup';
-import IconButton from '@material-ui/core/IconButton';
 import {useDispatch} from 'react-redux';
 
 import InfoView from '../../../@crema/core/InfoView';
 import {
-  onSignUpFirebaseUser,
-  signInUserWithFacebook,
-  signInUserWithGithub,
-  signInUserWithGoogle,
-  signInUserWithTwitter,
+  onSignUpFirebaseUser
 } from '../../../redux/actions';
 import {Link} from 'react-router-dom';
 import Box from '@material-ui/core/Box';
@@ -26,7 +17,6 @@ import clsx from 'clsx';
 
 import Grid from '@material-ui/core/Grid';
 import {GridContainer} from '../../../@crema';
-import grey from '@material-ui/core/colors/grey';
 import {CremaTheme} from '../../../types/AppContextPropsType';
 import {Fonts} from 'shared/constants/AppEnums';
 
@@ -154,6 +144,7 @@ const UserSignup: React.FC<UserSignupProps> = (props) => {
               setSubmitting(true);
               dispatch(
                 onSignUpFirebaseUser({
+                  name: data.name,
                   email: data.email,
                   password: data.password,
                 }),
@@ -208,30 +199,6 @@ const UserSignup: React.FC<UserSignupProps> = (props) => {
               </GridContainer>
 
               <Box
-                mb={{xs: 4, xl: 6}}
-                display='flex'
-                alignItems='center'
-                fontSize={18}>
-                <Box display='flex' alignItems='center'>
-                  <Checkbox className={classes.checkboxRoot} />
-                  <Box
-                    className={classes.textGrey}
-                    component='span'
-                    mr={2}
-                    fontSize={18}>
-                    <IntlMessages id='common.iAgreeTo' />
-                  </Box>
-                </Box>
-                <Box
-                  color='primary.main'
-                  component='span'
-                  fontSize={18}
-                  className={classes.pointer}>
-                  <IntlMessages id='common.termConditions' />
-                </Box>
-              </Box>
-
-              <Box
                 mb={6}
                 display='flex'
                 flexDirection={{xs: 'column', sm: 'row'}}
@@ -269,45 +236,6 @@ const UserSignup: React.FC<UserSignupProps> = (props) => {
             </Form>
           )}
         </Formik>
-      </Box>
-
-      <Box
-        bgcolor={grey[100]}
-        px={{xs: 6, sm: 10, xl: 15}}
-        py={{xs: 2, xl: 4}}
-        display='flex'
-        flexDirection={{xs: 'column', sm: 'row'}}
-        justifyContent='center'
-        alignItems='center'>
-        <Box
-          component='span'
-          className={classes.textGrey}
-          mr={{sm: 4}}
-          fontSize={18}>
-          <IntlMessages id='auth.orSignupWith' />
-        </Box>
-        <Box display='inline-block'>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithGoogle())}>
-            <i className='zmdi zmdi-google' />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithFacebook())}>
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithGithub())}>
-            <GitHubIcon />
-          </IconButton>
-          <IconButton
-            className={classes.iconButtonRoot}
-            onClick={() => dispatch(signInUserWithTwitter())}>
-            <TwitterIcon />
-          </IconButton>
-        </Box>
       </Box>
 
       <InfoView />

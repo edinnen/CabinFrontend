@@ -19,7 +19,6 @@ import NotificationBar from './NotificationBar';
 import HeaderMessages from '../../HeaderMessages';
 import Notifications from '../../Notifications';
 import UserInfo from '../UserInfo';
-import AppLogoWhite from '../../../../shared/components/AppLogoWhite';
 
 interface AppHeaderProps {}
 
@@ -76,7 +75,6 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
                   <MenuIcon className={classes.menuIconRoot} />
                 </IconButton>
               </Hidden>
-              <AppLogoWhite />
               <Box className={classes.grow} />
               <SearchBar />
               <Box className={clsx(classes.sectionDesktop)}>
