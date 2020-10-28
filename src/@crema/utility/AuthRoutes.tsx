@@ -59,13 +59,13 @@ const AuthRoutes: React.FC<AuthRoutesProps> = ({children}) => {
       ) {
         // @ts-ignore
         if (pathname === '/') {
-          history.push('/dashboards/crm');
+          history.push('/dashboards/live');
         }
         // @ts-ignore
         else if (initialPath !== '/signin') {
           history.push(initialPath);
         } else {
-          history.push('/dashboards/crm');
+          history.push('/dashboards/live');
         }
       }
     }

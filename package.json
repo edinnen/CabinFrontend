@@ -126,7 +126,8 @@
     "lint": "tslint  \"src/**/*.+(ts|tsx)\"",
     "lint:fix": "tslint --fix \"src/**/*.{ts,tsx}\"",
     "format": "prettier --write \"src/**/*.+(ts|tsx)\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "upload": "rsync -z --progress -e 'ssh -i ~/.ssh/id_rsa' -Iav ./build/* pi@thanksgiving.cabin:/var/www"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -22,7 +22,7 @@ export interface Reading {
     battery_temp: number
 }
 
-const evtSource = new EventSource("http://10.0.0.173:3030");
+const evtSource = new EventSource("http://thanksgiving.cabin:3030");
 /* eslint-disable */
 function mobileAndTabletCheck() {
   let check = false;

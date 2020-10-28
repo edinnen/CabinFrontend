@@ -2,7 +2,6 @@ import React from 'react';
 
 export const dashBoardConfigs = [
   {
-    auth: ['user'],
     routes: [
       {
         path: '/dashboards/live',

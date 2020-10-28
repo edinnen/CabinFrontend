@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {AuthUser} from '../types/models/AuthUser';
 
-const userApi = axios.create({ baseURL: 'http://10.0.0.173:8080/api/users', timeout: 1000 });
+const userApi = axios.create({ baseURL: 'http://thanksgiving.cabin:8080/api/users', timeout: 1000 });
 
 interface Credentials {
     email: string
@@ -45,4 +45,9 @@ export async function validate(jwt: string): Promise<boolean> {
     const { status } = await axios.post("validate", { jwt });
     if (status === 204) return true;
     return false;
+}
+
+export function averageNumber(arr: number[]): number {
+    const sum: number = arr.reduce((acc, val) => acc + val);
+    return sum / arr.length;
 }

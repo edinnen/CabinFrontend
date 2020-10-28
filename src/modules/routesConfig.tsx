@@ -45,6 +45,13 @@ const routesConfig: NavItemProps[] = [
             type: 'item',
             url: '/dashboards/crypto',
           },
+          {
+            id: 'live',
+            title: 'Live',
+            messageId: 'sidebar.app.dashboard.live',
+            type: 'item',
+            url: '/dashboards/live',
+          },
         ],
       },
       {
