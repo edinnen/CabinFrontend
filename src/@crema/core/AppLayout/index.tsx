@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import {useSelector} from 'react-redux';
+import {useLocation} from 'react-router-dom';
+import {matchRoutes} from 'react-router-config';
 import Box from '@material-ui/core/Box';
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -40,6 +42,13 @@ interface CremaLayoutProps {}
 
 const CremaLayout: React.FC<CremaLayoutProps> = () => {
   useStyles();
+
+  // Detect our current path to ensure we don't show the auth background for
+  // routes which do not require auth
+  const {pathname} = useLocation();
+  const {routes} = useContext<AppContextPropsType>(AppContext);
+  const currentRoute = matchRoutes(routes, pathname)[0].route;
+
   const {navStyle} = useContext<AppContextPropsType>(AppContext);
   const {user} = useSelector<AppState, AppState['auth']>(({auth}) => auth);
   const AppLayout = Layouts[navStyle];
@@ -47,7 +56,7 @@ const CremaLayout: React.FC<CremaLayoutProps> = () => {
   const classes = useStyle();
   return (
     <>
-      {user ? (
+      {user || !currentRoute.auth || !currentRoute.auth.length ? (
         <AppLayout />
       ) : (
         <Box className={classes.appAuth}>
