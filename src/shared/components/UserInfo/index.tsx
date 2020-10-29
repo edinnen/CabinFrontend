@@ -120,7 +120,7 @@ const UserInfo = (props: any) => {
             alignItems='center'
             justifyContent='space-between'>
             <Box mb={0} className={clsx(classes.userName)}>
-              {user && (user.name ? user.name : 'Admin User')}
+              {user ? (user.name ? user.name : 'Admin User') : "Guest"}
             </Box>
             <Box
               ml={3}

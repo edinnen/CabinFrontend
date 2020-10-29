@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { teal, indigo, blue } from '@material-ui/core/colors';
 import { Box } from '@material-ui/core';
+import {createLineData} from '../../../utils';
 import GridContainer from '../../../@crema/core/GridContainer';
 import Grid from '@material-ui/core/Grid';
-import TemperatureCard from './TemperatureCard';
-import PercentageCard from './PercentageCard';
-import LinePlot from './LinePlot';
+import TemperatureCard from '../../../@crema/core/TemperatureCard';
+import PercentageCard from '../../../@crema/core/PercentageCard';
+import LinePlot from '../../../shared/components/LinePlot';
 
 export interface Reading {
     timestamp: Date
@@ -30,19 +31,6 @@ function mobileAndTabletCheck() {
   return check;
 };
 const isMobile = mobileAndTabletCheck();
-
-function createLineData(date: string, reading: { [key: string]: any }, primaryKey: string, secondaryKey?: string, tertiaryKey?: string): any {
-  const line: any = { date, };
-  line[primaryKey] = reading[primaryKey];
-  if (secondaryKey) {
-    line[secondaryKey] = reading[secondaryKey];
-  }
-  if (tertiaryKey) {
-    line[tertiaryKey] = reading[tertiaryKey];
-  }
-
-  return line;
-}
 
 interface LiveReadings {
   voltAmpData: any[];
@@ -86,7 +74,6 @@ function Live() {
   }
 
   const { lastReading, voltAmpData, powerData } = readings;
-  console.log(readings);
   if (!lastReading) return <div />;
 
   return (

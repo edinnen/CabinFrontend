@@ -2,6 +2,15 @@ import React from 'react';
 
 export const dashBoardConfigs = [
   {
+    auth: ['auth'],
+    routes: [
+      {
+        path: '/dashboards/historical',
+        component: React.lazy(() => import('./Historical')),
+      },
+    ],
+  },
+  {
     auth: [],
     routes: [
       {

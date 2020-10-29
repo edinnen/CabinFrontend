@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card } from '@material-ui/core';
-import { Fonts } from '../../../../shared/constants/AppEnums';
-import AppCircularProgress from '../../../../@crema/core/AppCircularProgress';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import AppCircularProgress from '../AppCircularProgress';
 
 interface PercentageCardProps {
   title: string;

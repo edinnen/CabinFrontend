@@ -1,5 +1,6 @@
 import Api from '../../@crema/services/ApiConfig';
 import {fetchError, fetchStart, fetchSuccess} from './Common';
+import {getHistorical} from '../../utils';
 import {AppActions} from '../../types';
 import {Dispatch} from 'redux';
 import {
@@ -8,7 +9,26 @@ import {
   GET_CRYPTO_DATA,
   GET_METRICS_DATA,
   GET_WIDGETS_DATA,
+  GET_HISTORICAL_DATA,
 } from '../../types/actions/Dashboard.action';
+
+export const getHistoricalData = (from: number, to: number) => {
+  return (dispatch: Dispatch<AppActions>) => {
+    dispatch(fetchStart());
+    getHistorical(from, to)
+      .then((data) => {
+        if (data.status === 200) {
+          dispatch(fetchSuccess());
+          dispatch({ type: GET_HISTORICAL_DATA, payload: data.data });
+        } else {
+          dispatch(fetchError('Something went wrong, Please try again!'));
+        }
+      })
+      .catch((error) => {
+        dispatch(fetchError(error.message));
+      })
+  }
+}
 
 export const onGetAnalyticsData = () => {
   return (dispatch: Dispatch<AppActions>) => {

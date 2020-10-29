@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card, makeStyles } from '@material-ui/core';
-import { Fonts } from '../../../../shared/constants/AppEnums';
-import { CremaTheme } from '../../../../types/AppContextPropsType';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { CremaTheme } from '../../../types/AppContextPropsType';
 
 interface TemperatureCardProps {
   temperature: number;

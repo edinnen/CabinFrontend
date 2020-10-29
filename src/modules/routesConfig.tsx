@@ -52,6 +52,13 @@ const routesConfig: NavItemProps[] = [
             type: 'item',
             url: '/dashboards/live',
           },
+          {
+            id: 'historical',
+            title: 'Historical',
+            messageId: 'sidebar.app.dashboard.historical',
+            type: 'item',
+            url: '/dashboards/historical',
+          },
         ],
       },
       {

@@ -12,3 +12,9 @@ export interface Reading {
     cabin_temp: number
     battery_temp: number
 }
+
+export interface HistoricalData {
+    raw: Reading[] | null,
+    voltAmpData: any,
+    powerData: any,
+}
